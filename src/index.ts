@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Express route for file upload
-app.post("/upload", upload.single("file"), (req: Request, res: Response) => {
+app.post("/", upload.single("file"), (req: Request, res: Response) => {
   if (req.headers["x-api-key"] !== process.env.API_KEY) {
     return res.status(401).send("Unauthorized");
   }
